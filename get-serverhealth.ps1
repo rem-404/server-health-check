@@ -1,6 +1,14 @@
 function get-serverhealth {
 
-  Invoke-Command -ComputerName dc01, dc02 -Credential $cred -ScriptBlock {
+  param (
+    [string[]]$computername = 'localhost'
+    )
+
+  if (-not $cred) {
+    $cred = Get-Credential -Message "Enter credentials to access Active Directory"
+    }
+
+  Invoke-Command -ComputerName $computername -Credential $cred -ScriptBlock {
 
     # Replication check
     $repl = repadmin /replsummary
