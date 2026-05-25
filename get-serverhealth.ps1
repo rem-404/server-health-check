@@ -1,12 +1,14 @@
 function get-serverhealth {
 
   param (
-    [string[]]$computername = 'localhost'
-    )
+    [string[]]$computername = @("dc01", "dc02"),
+    [PSCredential]$Credential
+  )
 
+  # Check if credentials are provided, if not prompt the user
   if (-not $cred) {
     $cred = Get-Credential -Message "Enter credentials to access Active Directory"
-    }
+  }
 
   Invoke-Command -ComputerName $computername -Credential $cred -ScriptBlock {
 
