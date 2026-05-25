@@ -2,7 +2,7 @@ function get-serverhealth {
 
   param (
     [string[]]$computername = @("dc01", "dc02"),
-    [PSCredential]$Credential
+    [PSCredential]$Cred
   )
 
   # Check if credentials are provided, if not prompt the user
