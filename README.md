@@ -1,5 +1,5 @@
 # Get-ServerHealth
-Proof of concept — also just existing here.
+*This script is for a lab environment and meant for learning purposes only*
 
 
 # What does it do?
